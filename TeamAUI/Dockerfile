@@ -5,9 +5,7 @@ RUN NG_CLI_ANALYTICS=ci npm install -g @angular/cli
 RUN NG_CLI_ANALYTICS=ci npm install
 RUN ng build
 
-#------------------------------------------------------------------------------------------
-
 FROM nginx:alpine
 WORKDIR /app
-COPY --from=build /build/dist/ .
+COPY --from=build /build/dist/TeamAPoolProjectUI .
 COPY nginx.conf /etc/nginx/nginx.conf
