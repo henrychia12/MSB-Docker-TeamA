@@ -11,16 +11,16 @@ export class AuthService {
   constructor(private request: RequestService) { }
 
   login(login: string): Observable<IUser> {
-    return this.request.get<IUser>('http://localhost:8080/user/' + login);
+	  return this.request.get<IUser>('/user/' + login);
   }
   register(register: object): Observable<IUser> {
-    return this.request.create<IUser>('http://localhost:8080/user/', register);
+	  return this.request.create<IUser>('/user/', register);
   }
   findUser(username: string): Observable<IUser> {
-    return this.request.getUser<IUser>('http://localhost:8080/user/' + username);
+    return this.request.getUser<IUser>('/user/' + username);
   }
   delete(username: string): Observable<IUser> {
-    return this.request.deleteUser<IUser>('http://localhost:8080/user/' + username)
+    return this.request.deleteUser<IUser>('/user/' + username)
   }
 
 }
